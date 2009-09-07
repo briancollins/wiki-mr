@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 require 'rubygems'
 require 'hpricot'
@@ -9,7 +9,7 @@ STDIN.each_line do |line|
   buf += line
   if line.include? "</page>"
 
-    page = Nokogiri(buf)
+    page = Hpricot(buf)
     title = (page/"title").inner_html.gsub("\t", " ")
     i += 1
     puts "#{title}\t0"
