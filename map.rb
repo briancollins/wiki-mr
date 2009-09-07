@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'nokogiri'
+require 'hpricot'
 
 i = 0
 buf = ""
