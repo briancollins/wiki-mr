@@ -10,10 +10,11 @@ STDIN.each_line do |line|
   if line.include? "</page>"
 
     page = Nokogiri(buf)
-    title = (page/"title").inner_html.gsub("\t", "")
+    title = (page/"title").inner_html.gsub("\t", " ")
     i += 1
+    puts "#{title}\t0"
     (page/"text").inner_html.scan(/\[\[([^(\]\])]+)\]\]/) do |x|
-      puts "#{title}\t#{$1.split("|").first.strip.capitalize}"
+      puts "#{$1.split("|").first.strip.capitalize.gsub("\t", " ")}\t1"
     end
 
     buf = ""

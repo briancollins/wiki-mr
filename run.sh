@@ -6,5 +6,5 @@ hadoop jar ./streaming.jar \
     -output result \
 	-inputreader 'StreamXmlRecordReader,begin=<page>,end=</page>' \
     -mapper ~/Projects/mapreduce/map.rb \
-	-reducer ~/Projects/mapreduce/reduce.rb \
+	-reducer ~/Projects/mapreduce/reduce.rb
 	

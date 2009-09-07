@@ -4,7 +4,7 @@ current_key = nil
 count = 0
 STDIN.each_line do |line|
   key, val = line.split("\t", 2)
-  count += 1
+  count += val.to_i
   if key != current_key
     if current_key
       puts "#{current_key}\t#{count}"
