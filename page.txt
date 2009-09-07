@@ -1,0 +1,32 @@
+<page>
+    <title>April</title>
+    <id>1</id>
+    <revision>
+      <id>1686328</id>
+      <timestamp>2009-08-16T08:49:35Z</timestamp>
+      <contributor>
+        <username>SieBot</username>
+        <id>10515</id>
+      </contributor>
+      <minor />
+      <comment>robot Adding: [[pnb:اپریل]]</comment>
+      <text xml:space="preserve">'''April''' is the fourth month of the year with 30 days. The name April comes from that Latin word ''aperire'' which means &quot;to open&quot;. This probably refers to growing plants in spring. April begins on the same day of week as ''[[July]]'' in all years and also ''[[January]]'' in leap years.
+
+April's flower is the Sweet Pea and its birthstone is the Diamond. The meaning of the Diamond is Innocence.
+
+== April in poetry ==
+Poets use ''April'' to mean the end of winter. For example: ''April showers bring [[May]] flowers.''
+
+== Events in April ==
+* [[April Fools' Day]] occurs on [[April 1]]st.
+* [[Easter]] occurs on a [[week|Sunday]] between [[March 22]]nd and [[April 25]]th.
+* Australia and New Zealand celebrate ANZAC Day on 25th April. [http://www.awm.gov.au/dawn/spirit/meaning.asp ANZAC] means - Australian and New Zealand Army Corps and began in 1915.
+
+== Other websites ==
+* [http://www.aprilcalendar.net April Calendar]
+
+
+{{Months}}
+      </text>
+    </revision>
+  </page>
