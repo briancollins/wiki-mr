@@ -1,9 +1,9 @@
 #!/bin/sh
 
-~/hadoop/bin/hadoop dfs -rmr /user/brian/result
-~/hadoop/bin/hadoop jar ./streaming.jar \
-    -input /user/brian/articles.xml \
-    -output /user/brian/result \
+hadoop dfs -rmr result
+hadoop jar ./streaming.jar \
+    -input articles.xml \
+    -output result \
 	-inputreader 'StreamXmlRecordReader,begin=<page>,end=</page>' \
     -mapper ~/Projects/mapreduce/map.rb \
 	-reducer ~/Projects/mapreduce/reduce.rb \
