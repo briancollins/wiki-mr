@@ -17,10 +17,10 @@ STDIN.each_line do |line|
     page = Hpricot(buf)
     title = (page/"title").inner_html.gsub("\t", " ")
     i += 1
-    puts "LongValueSum:\"#{CGI::escape title}\"\t0"
+#    puts "LongValueSum:#{CGI::escape title}\t0"
     (page/"text").inner_html.scan(/\[\[([^(\]\])]+)\]\]/) do |x|
-      link = $1.split("|").first.strip.capitalize.gsub("\t", " ")
-      puts "LongValueSum:\"#{CGI::escape link}\"\t1"
+      link = $1.split("|").first.strip.gsub(/^[a-z]/) { |a| a.upcase }.gsub(/\t|_/, " ")
+      puts "LongValueSum:#{CGI::escape link}\t1"
     end
 
     buf = ""
