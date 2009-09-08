@@ -2,9 +2,14 @@
 
 require 'rubygems'
 require 'hpricot'
+require 'cgi'
 
+require 'syslog'
 i = 0
 buf = ""
+link = ""
+title = ""
+begin
 STDIN.each_line do |line|
   buf += line
   if line.include? "</page>"
@@ -12,12 +17,17 @@ STDIN.each_line do |line|
     page = Hpricot(buf)
     title = (page/"title").inner_html.gsub("\t", " ")
     i += 1
-    puts "#{title}\t0"
+    puts "LongValueSum:\"#{CGI::escape title}\"\t0"
     (page/"text").inner_html.scan(/\[\[([^(\]\])]+)\]\]/) do |x|
-      puts "#{$1.split("|").first.strip.capitalize.gsub("\t", " ")}\t1"
+      link = $1.split("|").first.strip.capitalize.gsub("\t", " ")
+      puts "LongValueSum:\"#{CGI::escape link}\"\t1"
     end
 
     buf = ""
   end
+end
+rescue
+  Syslog.open("HJALP")
+  Syslog.crit("#{link}, #{title}")
 end
   
