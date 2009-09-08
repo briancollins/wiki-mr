@@ -6,7 +6,7 @@ hadoop jar ./streaming.jar \
     -output result \
 	-inputreader 'StreamXmlRecordReader,begin=<page>,end=</page>' \
     -mapper map.rb \
-	-reducer aggregate \
+	-reducer reduce.rb \
 	-file map.rb \
 	-file reduce.rb
 	
