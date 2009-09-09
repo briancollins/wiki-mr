@@ -8,7 +8,7 @@ require 'digest/md5'
 
 i = 0
 buf = ""
-store = Memcached.new("localhost:21201", :poll_timeout => 100, :recv_timeout => 100, :timeout => 100)
+store = Memcached.new("voldemort:21201", :poll_timeout => 100, :recv_timeout => 100, :timeout => 100)
 
 def valid_article?(n)
   !(n =~ /^(Media|Special|Talk|User|User_talk|Wikipedia|Wikipedia_talk|Image|Image_talk|MediaWiki|MediaWiki_talk|Template|Template_talk|Help|Help_talk|Category|Category_talk):/i)

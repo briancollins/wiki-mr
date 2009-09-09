@@ -3,7 +3,7 @@ require 'rubygems'
 require 'memcached'
 
 ARTICLE_COUNT = 97313
-store = Memcached.new("localhost:21201", :poll_timeout => 100, :recv_timeout => 100, :timeout => 100)
+store = Memcached.new("voldemort:21201", :poll_timeout => 100, :recv_timeout => 100, :timeout => 100)
 store.set 'val', 0.0
 
 `hadoop dfs -rmr ip`
