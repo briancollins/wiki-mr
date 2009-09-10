@@ -1,11 +1,7 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-require 'memcached'
 
 ARTICLE_COUNT = 3000000
-store = Memcached.new("voldemort:21201", :poll_timeout => 100, :recv_timeout => 100, :timeout => 100)
-store.set 'counter', 0
-
 
 `hadoop dfs -rmr result
 hadoop jar ./streaming.jar \

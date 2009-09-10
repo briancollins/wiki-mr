@@ -2,13 +2,12 @@
 
 require 'rubygems'
 require 'hpricot'
+require 'simplerdb'
 require 'cgi'
-require 'memcached'
-require 'digest/md5'
 
 i = 0
 buf = ""
-store = Memcached.new("voldemort:21201", :poll_timeout => 100, :recv_timeout => 100, :timeout => 100)
+store = SimplerDB.new("enwiki")
 
 def valid_article?(n)
   !(n =~ /^(Media|Special|Talk|User|User_talk|Wikipedia|Wikipedia_talk|Image|Image_talk|MediaWiki|MediaWiki_talk|Template|Template_talk|Help|Help_talk|Category|Category_talk):/i)
@@ -33,7 +32,7 @@ STDIN.each_line do |line|
         end
       end
     
-      store.set("article:" + Digest::MD5.hexdigest(CGI::escape(title)), [1.0 / ENV["n"].to_i, links.size, links])
+      store.put(CGI::escape(title), [1.0 / ENV["n"].to_i, links.size, links])
       puts "#{CGI::escape(title)}\t#{links.size}"
     end
 
