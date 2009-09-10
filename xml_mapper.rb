@@ -24,8 +24,12 @@ STDIN.each_line do |line|
     if valid_article?(title)
       (page/"text").inner_html.scan(/\[\[([^(\]\])]+)\]\]/) do |x|
         name = $1
-        if valid_article?(name)
-          links << CGI::escape(name.split("|").first.strip.gsub(/^[a-z]/) { |a| a.upcase }.gsub(/[_\s]/, " "))
+        begin
+          if valid_article?(name)
+            links << CGI::escape(name.split("|").first.strip.gsub(/^[a-z]/) { |a| a.upcase }.gsub(/[_\s]/, " "))
+          end
+        rescue
+          # bad link
         end
       end
     
